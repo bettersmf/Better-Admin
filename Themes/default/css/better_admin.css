@@ -1,0 +1,405 @@
+/* Better Admin - Stage 1 + Stage 2A + Stage 2B foundation */
+#quick_actions.better_admin_actions {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    background: rgba(0, 0, 0, 0.035);
+}
+
+#quick_actions.better_admin_actions::before {
+    content: "Bulk topic actions";
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+#quick_actions.better_admin_actions .qaction {
+    margin-left: 6px;
+}
+
+.better_admin_under_review {
+    opacity: 0.92;
+}
+
+.better_admin_review_badge {
+    display: inline-block;
+    margin-left: 7px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 0.78em;
+    font-weight: 700;
+    line-height: 1.35;
+    vertical-align: middle;
+    background: rgba(180, 120, 0, 0.14);
+    border: 1px solid rgba(180, 120, 0, 0.35);
+}
+
+@media (max-width: 720px) {
+    #quick_actions.better_admin_actions::before {
+        display: block;
+        margin: 0 0 8px;
+    }
+}
+
+
+/* Stage 2A: visible topic/post action polish. */
+
+/* Keep promoted actions visually tidy when a narrow topic column wraps them. */
+.quickbuttons_post > li.better_admin_visible_action > a {
+    white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+    .quickbuttons_post > li.better_admin_visible_action {
+        margin-bottom: 4px;
+    }
+}
+
+
+
+/* dev3i: Better Admin permanently owns the promoted Delete icon treatment.
+ * Theme Lab and other custom themes may style the surrounding quick button,
+ * but they must not turn SMF's remove glyph into a colored tile. */
+.quickbuttons_post > li.better_admin_delete_action .main_icons,
+.quickbuttons_post > li.better_admin_delete_action .main_icons::before,
+.quickbuttons_post > li.better_admin_delete_action .main_icons::after,
+.quickbuttons_post > li.better_admin_delete_action > a > span:first-child,
+.quickbuttons_post > li.better_admin_delete_action > a > span:first-child::before,
+.quickbuttons_post > li.better_admin_delete_action > a > span:first-child::after {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Do not let hover/focus/active theme rules reintroduce the icon tile. */
+.quickbuttons_post > li.better_admin_delete_action:hover .main_icons,
+.quickbuttons_post > li.better_admin_delete_action:focus-within .main_icons,
+.quickbuttons_post > li.better_admin_delete_action > a:hover .main_icons,
+.quickbuttons_post > li.better_admin_delete_action > a:focus .main_icons,
+.quickbuttons_post > li.better_admin_delete_action > a:active .main_icons {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    box-shadow: none !important;
+}
+
+/* Stage 2B foundation: reply selection layout only. */
+.better_admin_reply_bulk_bar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 36px;
+    margin: 6px 0;
+    padding: 7px 12px;
+    box-sizing: border-box;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.035);
+}
+
+.better_admin_select_all_replies,
+.better_admin_reply_select {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.better_admin_reply_select {
+    margin: 0 0 0 7px;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.better_admin_reply_select input,
+.better_admin_select_all_replies input {
+    margin: 0;
+    vertical-align: middle;
+}
+
+@media (max-width: 720px) {
+    .better_admin_reply_bulk_bar {
+        justify-content: flex-start;
+    }
+}
+
+/* Stage 2B: bulk reply delete action. */
+.better_admin_reply_bulk_bar {
+    gap: 10px;
+}
+
+.better_admin_delete_selected_replies {
+    margin-left: 4px;
+    white-space: nowrap;
+}
+
+.better_admin_delete_selected_replies:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+@media (max-width: 720px) {
+    .better_admin_reply_bulk_bar {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* Stage 2B: single-reply Under Review state. */
+.better_admin_reply_under_review {
+    opacity: 0.94;
+}
+
+.better_admin_reply_review_badge {
+    display: inline-block;
+    margin-left: 7px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 0.78em;
+    font-weight: 700;
+    line-height: 1.35;
+    vertical-align: middle;
+    background: rgba(180, 120, 0, 0.14);
+    border: 1px solid rgba(180, 120, 0, 0.35);
+}
+
+/* Stage 2B: bulk Under Review action. */
+.better_admin_review_selected_replies {
+    white-space: nowrap;
+}
+
+.better_admin_review_selected_replies:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+
+/* Stage 2B: bulk Restore action. */
+.better_admin_restore_selected_replies {
+    white-space: nowrap;
+}
+
+.better_admin_restore_selected_replies:disabled {
+    opacity: 0.55;
+    cursor: default;
+}
+
+/* Stage 3A: stable Package Manager ordering and post-install focus. */
+tr.better_admin_package_highlight > td {
+    animation: betterAdminPackageHighlight 2.8s ease-out 1;
+}
+
+@keyframes betterAdminPackageHighlight {
+    0%, 35% {
+        box-shadow: inset 0 0 0 999px rgba(255, 215, 0, 0.18);
+    }
+    100% {
+        box-shadow: inset 0 0 0 999px rgba(255, 215, 0, 0);
+    }
+}
+
+
+/* Stage 3D: Package Manager operation feedback. */
+.better_admin_package_notice {
+    position: relative;
+    margin: 10px 0 12px;
+    padding: 11px 42px 11px 14px;
+    border-radius: 6px;
+    font-weight: 600;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    opacity: 1;
+    transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.better_admin_package_notice_success {
+    background: #e9f7ec;
+    border: 1px solid #8ac898;
+    color: #1f5f2c;
+}
+
+.better_admin_package_notice_error {
+    background: #fff0f0;
+    border: 1px solid #d58a8a;
+    color: #8b1e1e;
+}
+
+.better_admin_package_notice_close {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.better_admin_package_notice_fade {
+    opacity: 0;
+    transform: translateY(-4px);
+}
+
+/* Stage 4A/4B: bulk cleanup on Theme Settings. */
+.better_admin_theme_bulk_panel {
+    margin-bottom: 18px;
+}
+
+.better_admin_theme_bulk_heading {
+    margin-top: 0;
+}
+
+.better_admin_theme_bulk_intro {
+    margin-bottom: 0;
+}
+
+.better_admin_theme_bulk_form {
+    margin: 0;
+}
+
+.better_admin_theme_bulk_list {
+    padding: 0 12px 12px;
+    overflow: hidden;
+}
+
+.better_admin_theme_bulk_row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 44px;
+    padding: 10px 6px;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.18);
+}
+
+.better_admin_theme_bulk_row:last-of-type {
+    border-bottom: 0;
+}
+
+.better_admin_theme_bulk_row.is_protected {
+    opacity: 1;
+}
+
+.better_admin_theme_bulk_checkbox {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 28px;
+    width: 28px;
+    min-height: 28px;
+    margin: 0;
+    cursor: pointer;
+}
+
+.better_admin_theme_bulk_checkbox_placeholder {
+    cursor: default;
+}
+
+.better_admin_theme_bulk_checkbox input {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+}
+
+.better_admin_theme_bulk_name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.better_admin_theme_title {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.better_admin_theme_version {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 0.85em;
+    opacity: 0.72;
+}
+
+.better_admin_theme_protected_badge {
+    display: inline-flex;
+    align-items: center;
+    flex: 0 0 auto;
+    padding: 3px 8px;
+    border: 1px solid rgba(127, 127, 127, 0.35);
+    border-radius: 999px;
+    font-size: 0.82em;
+    font-weight: 600;
+    line-height: 1.35;
+    opacity: 0.86;
+    white-space: nowrap;
+}
+
+.better_admin_theme_empty {
+    padding: 16px 8px 6px;
+    text-align: center;
+    opacity: 0.8;
+}
+
+.better_admin_theme_bulk_actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(127, 127, 127, 0.18);
+}
+
+.better_admin_theme_bulk_actions_left {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.better_admin_theme_bulk_actions .button {
+    margin: 0;
+}
+
+.better_admin_theme_delete_button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.better_admin_theme_confirm_actions {
+    margin-top: 12px;
+}
+
+.better_admin_theme_confirm_box ul {
+    margin: 0 0 14px 20px;
+}
+
+.better_admin_theme_notice {
+    margin-bottom: 12px;
+}
+
+@media (max-width: 600px) {
+    .better_admin_theme_bulk_name {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .better_admin_theme_protected_badge {
+        white-space: normal;
+    }
+
+    .better_admin_theme_bulk_actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .better_admin_theme_bulk_actions_left {
+        width: 100%;
+    }
+
+    .better_admin_theme_bulk_actions_left .button,
+    .better_admin_theme_delete_button {
+        flex: 1 1 auto;
+    }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE package-info SYSTEM "https://www.simplemachines.org/xml/package-info">
+<package-info xmlns="https://www.simplemachines.org/xml/package-info" xmlns:smf="https://www.simplemachines.org/">
+    <id>bettersmf:better-admin</id>
+    <name>Better Admin</name>
+    <version>0.1.0-dev3k</version>
+    <type>modification</type>
+
+    <install for="2.1 - 2.1.99">
+        <require-file name="Sources/BetterAdmin.php" destination="$sourcedir" />
+        <require-file name="Themes/default/languages/BetterAdmin.english.php" destination="$languagedir" />
+        <require-file name="Themes/default/css/better_admin.css" destination="$themedir/css" />
+        <require-file name="Themes/default/scripts/better_admin.js" destination="$themedir/scripts" />
+        <require-file name="Themes/default/scripts/better_admin_stage2b.js" destination="$themedir/scripts" />
+        <code>better_admin_install.php</code>
+    </install>
+
+    <upgrade for="2.1 - 2.1.99" from="0.1.0-dev1,0.1.0-dev2a,0.1.0-dev2b,0.1.0-dev2c,0.1.0-dev2d,0.1.0-dev2e,0.1.0-dev2f,0.1.0-dev2g,0.1.0-dev2h,0.1.0-dev2i,0.1.0-dev2j,0.1.0-dev2k,0.1.0-dev2l,0.1.0-dev2m,0.1.0-dev2n,0.1.0-dev3a,0.1.0-dev3b,0.1.0-dev3c,0.1.0-dev3d,0.1.0-dev3e,0.1.0-dev3f,0.1.0-dev3g,0.1.0-dev3h,0.1.0-dev3i,0.1.0-dev3j">
+        <require-file name="Sources/BetterAdmin.php" destination="$sourcedir" />
+        <require-file name="Themes/default/languages/BetterAdmin.english.php" destination="$languagedir" />
+        <require-file name="Themes/default/css/better_admin.css" destination="$themedir/css" />
+        <require-file name="Themes/default/scripts/better_admin.js" destination="$themedir/scripts" />
+        <require-file name="Themes/default/scripts/better_admin_stage2b.js" destination="$themedir/scripts" />
+        <code>better_admin_upgrade_dev3k.php</code>
+    </upgrade>
+
+    <uninstall for="2.1 - 2.1.99">
+        <code>better_admin_uninstall.php</code>
+        <database>better_admin_uninstall_data.php</database>
+        <remove-file name="$sourcedir/BetterAdmin.php" />
+        <remove-file name="$languagedir/BetterAdmin.english.php" />
+        <remove-file name="$themedir/css/better_admin.css" />
+        <remove-file name="$themedir/scripts/better_admin.js" />
+        <remove-file name="$themedir/scripts/better_admin_stage2b.js" />
+    </uninstall>
+</package-info>
